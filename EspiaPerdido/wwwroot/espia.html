@@ -1,0 +1,266 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>EspiaPerdido</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#dbdbdb">
+    
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light myNavbar">
+        <a class="navbar-brand" href="#">Juegos Bayomo</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/index.html">Inicio <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/espia.html">Espia Perdido</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/imbecil.html">Imbecil</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <br />
+    <div class="container">
+        <!--Modal cerrar-->
+        <div class="modal" id="modalClose">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">See you soon!</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Refresh to play again.</p>
+                        <button class="btn btn-outline-primary" onClick="window.location.reload()">Refresh Page</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Modal Tarjeta-->
+        <div class="modal" id="modalTarjeta">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title"><span id="situacion"></span></h4>
+                    </div>
+                    <div class="modal-body text-center">
+                        <span id="rol"></span>
+                    </div>
+                    <div class="modal-footer">
+                        <span id="solucion"></span><button id="btnEnd" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#modalTarjeta">Acabar partida</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h1 class="sala">Sala: <span id="roomToken"></span></h1>
+        <hr>
+        <div class="row">
+            <div class="col-md-5 card">
+                <h2 class="card-header">Esperando a: <span id="onlineUsersCount"></span></h2>
+                <div class="card-body">
+                    <ul id="userList" class="list-group"></ul>
+                </div>
+                <button id="btnClose" type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalClose">Salir</button>
+            </div>
+            <div class="col-md-2 align-self-center">
+            </div>
+            <div class="col-md-5 card">
+                <h2 class="card-header">Jugadores listos: <span id="readyUsersCount"></span></h2>
+                <div class="card-body">
+                    <ul id="readyUserList" class="list-group"></ul>
+                </div>
+                <button type="button" id="btnReady" class="btn btn-success">Listo</button>
+                <div class="progress" id="waitingDiv" style="height: 38px">
+                    <div class="progress-bar" id="waiting" style="width: 10%; height: 38px"></div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-5"></div>
+            <div class="col-md-2 align-self-center">
+                <button id="loading" class="btn baseBtn" data-toggle="modal" data-target="#modalTarjeta">
+                    <span id="loadingCircle" class="spinner-border spinner-border-sm"></span>
+                    <span id="loadingText">Cargando...</span>
+                </button>
+            </div>
+            <div class="col-md-5"></div>
+        </div>
+        <!--<div class="row" >
+            <button id="loading" class="btn btn-primary"  data-toggle="modal" data-target="#modalTarjeta">
+                <span id="loadingCircle" class="spinner-border spinner-border-sm"></span>
+                <span id="loadingText">Loading...</span>
+            </button>
+        </div>-->
+        <br>
+    </div>
+    <!--<footer class="footer">
+        <div class="container">Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+    </footer>-->
+
+    <script src="signalr.js"></script>
+    <script>
+        (function () {
+            $('#waitingDiv').hide();
+            $('#loading').hide();
+            $('#btnEnd').hide();
+
+            var username;
+            username = prompt("Introduce tu usuario: ")
+
+            var room;
+            room = prompt("Introduce tu sala: ")
+
+            setupConnection = () => {
+                if (room) {
+                    hubConnection = new signalR.HubConnectionBuilder()
+                        .withUrl('/juego?username=' + username + '&room=' + room)
+                        .build();
+                } else {
+                    hubConnection = new signalR.HubConnectionBuilder()
+                        .withUrl('/juego?username=' + username)
+                        .build();
+                }
+
+                function updateUsersView(userCount, userList) {
+                    $('#onlineUsersCount').text(userCount);
+                    $('#userList').empty();
+                    userList.forEach(element => {
+                        if (element == username) {
+                            $('#userList').append('<li class="list-group-item active">' + element + '</li>');
+                        } else {
+                            $('#userList').append('<li class="list-group-item">' + element + '</li>');
+                        }
+                    });
+                }
+
+                function updateReadyUsersView(userCount, userList) {
+                    $('#readyUsersCount').text(userCount);
+                    $('#readyUserList').empty();
+                    userList.forEach(element => {
+                        if (element == username) {
+                            $('#readyUserList').append('<li class="list-group-item active">' + element + '</li>');
+                        } else {
+                            $('#readyUserList').append('<li class="list-group-item">' + element + '</li>');
+                        }
+                    });
+                }
+
+                hubConnection.on("roomToken", (token) => {
+                    $('#roomToken').html(token);
+                }
+                );
+
+                hubConnection.on("updateUsers", (userCount, userList) => {
+                    updateUsersView(userCount, userList);
+                }
+                );
+
+                hubConnection.on("updateReadyUsers", (userTotal, userCount, userList, game) => {
+                    updateReadyUsersView(userCount, userList);
+                    if (userList.find((user) => user == username)) {
+                        $('#btnReady').hide();
+                        $('#waiting').attr("style", "width: " + (userCount / userTotal) * 100 + "%; height: 38px");
+                        if (userTotal == userCount) {
+                            $('#waiting').addClass("bg-success");
+                            $('#waiting').removeClass("bg-warning")
+                        } else {
+                            $('#waiting').addClass("bg-warning");
+                            $('#waiting').removeClass("bg-success");
+                        }
+                        $('#waitingDiv').show();
+                    } else {
+                        $('#btnReady').show();
+                        $('#waitingDiv').hide();
+                        if (game) {
+                            $('#btnReady').attr("disabled", true);
+                        } else {
+                            $('#btnReady').attr("disabled", false);
+                        }
+                    }
+                }
+                );
+
+                hubConnection.on("empezando", () => {
+                    $('#loadingText').html(" Empezando el juego...");
+                    $('#loading').attr("disabled", true);
+                    $('#loadingCircle').show();
+
+                    $('#solucion').html("");
+                    $('#situacion').html("");
+                    $('#loading').show();
+                }
+                );
+
+                hubConnection.on("recibeTarjeta", (situacion, rol) => {
+                    $('#loadingText').html("Ver rol!");
+                    $('#loading').attr("disabled", false);
+                    $('#loadingCircle').hide();
+                    $('#rol').html(rol);
+                    if (rol == "Espia") {
+                        $('#situacion').html("No sabes donde estás!");
+                        $('#btnEnd').show();
+                    } else {
+                        $('#situacion').html(situacion);
+                    }
+                    console.log(situacion);
+                    console.log(rol);
+                }
+                );
+
+                hubConnection.on("solucion", () => {
+                    $('#solucion').html("Partida Finalizada!");
+                    $('#btnEnd').hide();
+                    $('#loading').hide();
+                }
+                );
+
+                hubConnection.on("close", () => {
+                    console.log("Adios");
+                }
+                );
+
+                hubConnection.start().catch(err => console.log(errtoString()));
+            };
+            setupConnection();
+            $('#btnClose').click(function () {
+                hubConnection.stop();
+            });
+            $('#btnReady').click(function () {
+                hubConnection.invoke("Ready");
+            });
+            $('#btnEnd').click(function () {
+                hubConnection.invoke("End");
+            });
+        })();
+    </script>
+</body>
+</html>
+
+

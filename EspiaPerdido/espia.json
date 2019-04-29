@@ -1,0 +1,26 @@
+[
+  {
+    "Nombre":  "Estacion de Tren",
+    "Roles": [
+      "Mecánico",
+      "Policía de Control Fronterizo",
+      "Asistente de Tren",
+      "Pasajero",
+      "Chef del Restaurante",
+      "Ingeniero",
+      "Alimentador"
+    ]
+  },
+  {
+    "Nombre": "Banco",
+    "Roles": [
+      "Conductor de Vehículo Blindado",
+      "Administrador",
+      "Consultor",
+      "Cliente",
+      "Ladrón",
+      "Guardia de Seguridad",
+      "Cajero"
+    ]
+  }
+]

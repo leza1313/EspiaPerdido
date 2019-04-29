@@ -1,0 +1,94 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>EspiaPerdido</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#dbdbdb">
+
+    <meta name="author" content="leza1313">
+    <!-- Meta Description -->
+    <meta name="description" content="Juegos Bayomo, EspiaPerdido e Imbecil">
+
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light myNavbar">
+        <a class="navbar-brand" href="#">Juegos Bayomo</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/index.html">Inicio <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/espia.html">Espia Perdido</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/imbecil.html">Imbecil</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <br />
+        <div class="row">
+            <div class="col-md-5 card">
+                <h2 class="card-header">Espia Perdido:</h2>
+                <div class="card-body">
+                    <p>
+                        Todo el mundo sabe donde se encuentra, y que papel desempeña. Todos menos el Espía que está perdido.
+                    </p>
+                    <a href="espia.html" class="btn baseBtn">Jugar</a>
+                </div>
+            </div>
+            <div class="col-md-2 align-self-center">
+            </div>
+            <div class="col-md-5 card">
+                <h2 class="card-header">Imbecil:</h2>
+                <div class="card-body">
+                    <p>
+                        Todo el mundo conoce la palabra secreta. Todos menos el Imbecil.
+                    </p>
+                    <a href="imbecil.html" class="btn baseBtn">Jugar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+  $(document).ready(function () {
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('https://espiaperdido.azurewebsites.net/sw.js').then(function(registration) {
+        // Registration was successful
+        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, function(err) {
+        // registration failed :(
+        console.log('ServiceWorker registration failed: ', err);
+        });
+      });
+    }
+  });
+</script>
+</body>
+</html>
+
+
