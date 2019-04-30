@@ -1,26 +1,362 @@
 [
   {
-    "Nombre":  "Estacion de Tren",
+    "Nombre": "Tren de pasajeros",
     "Roles": [
-      "Mecánico",
-      "Policía de Control Fronterizo",
-      "Asistente de Tren",
-      "Pasajero",
-      "Chef del Restaurante",
-      "Ingeniero",
-      "Alimentador"
+      "Polizón",
+      "Fogonero",
+      "Pasajera",
+      "Cocinero en el vagón comedor",
+      "Auxiliar",
+      "Revisor",
+      "Maquinista"
     ]
   },
   {
     "Nombre": "Banco",
     "Roles": [
-      "Conductor de Vehículo Blindado",
-      "Administrador",
-      "Consultor",
+      "Atracador",
+      "Analista financiero",
       "Cliente",
-      "Ladrón",
+      "Conductor coche blindado",
+      "Directora",
       "Guardia de Seguridad",
       "Cajero"
+    ]
+  },
+  {
+    "Nombre": "Crucero",
+    "Roles": [
+      "Camarero",
+      "Auxiliar",
+      "Músico de orquesta",
+      "Operador de radio",
+      "Pasajera de primera clase",
+      "Cocinero",
+      "Capitan"
+    ]
+  },
+  {
+    "Nombre": "Ejército cruzado",
+    "Roles": [
+      "Monje",
+      "Prisionero sarraceno",
+      "Sirviente",
+      "Obispo",
+      "Escudero",
+      "Arquero",
+      "Caballero"
+    ]
+  },
+  {
+    "Nombre": "Embajada",
+    "Roles": [
+      "Turista",
+      "Refugiado",
+      "Guardia de seguridad",
+      "Secretaria",
+      "Funcionario",
+      "Diplomático",
+      "Embajadora"
+    ]
+  },
+  {
+    "Nombre": "Hospital",
+    "Roles": [
+      "Celador",
+      "Residente",
+      "Paciente",
+      "Enfermero",
+      "Cirujana",
+      "Médico",
+      "Jefe Médico"
+    ]
+  },
+  {
+    "Nombre": "Zoológico",
+    "Roles": [
+      "Biólogo",
+      "Vendedora de perritos calientes",
+      "Guía",
+      "Guarda",
+      "Veterinario",
+      "Niña",
+      "Directora del zoológico"
+    ]
+  },
+  {
+    "Nombre": "Universidad",
+    "Roles": [
+      "Profesor adjunto",
+      "Bibliotecario",
+      "Investigadora",
+      "Estudiante",
+      "Catedrático",
+      "Decano",
+      "Rector"
+    ]
+  },
+  {
+    "Nombre": "Estación espacial",
+    "Roles": [
+      "Alien",
+      "Médico",
+      "Turista espacial",
+      "Investigador",
+      "Ingeniera mecánica",
+      "Piloto",
+      "Comandante"
+    ]
+  },
+  {
+    "Nombre": "Comisaría de policía",
+    "Roles": [
+      "Funcionario",
+      "Comisario",
+      "Periodista",
+      "Agente de policía",
+      "Preso",
+      "Abogada",
+      "Inspector"
+    ]
+  },
+  {
+    "Nombre": "Submarino",
+    "Roles": [
+      "Timonel",
+      "Jefa de máquinas",
+      "Marinero",
+      "Cocinero",
+      "Operador de sonar",
+      "Operador de radio",
+      "Comandante"
+    ]
+  },
+  {
+    "Nombre": "Estación polar",
+    "Roles": [
+      "Geofísico",
+      "Médico",
+      "Bióloga",
+      "Meteoróloga",
+      "Hidrólogo",
+      "Operador de radio",
+      "Jefa de proyecto"
+    ]
+  },
+  {
+    "Nombre": "Barco pirata",
+    "Roles": [
+      "Prisionera",
+      "Vigía",
+      "Cocinero",
+      "Artillera",
+      "Grumete",
+      "Marinero",
+      "El intrépdio capitán"
+    ]
+  },
+  {
+    "Nombre": "Parque de atracciones",
+    "Roles": [
+      "Animador",
+      "Niña",
+      "Payaso",
+      "Vendedora de perritos calientes",
+      "Mecánico",
+      "Taquillero",
+      "Visitante"
+    ]
+  },
+  {
+    "Nombre": "Restaurante",
+    "Roles": [
+      "Crítico gastronómico",
+      "Camarera",
+      "Cliente",
+      "Maitre",
+      "Sumiller",
+      "Pinche de cocina",
+      "Chef"
+    ]
+  },
+  {
+    "Nombre": "Estudios de cine",
+    "Roles": [
+      "Extra",
+      "Actor",
+      "Diseñadora de vestuario",
+      "Doble",
+      "Ingeniera de sonido",
+      "Cámara",
+      "Director"
+    ]
+  },
+  {
+    "Nombre": "Fiesta de empresa",
+    "Roles": [
+      "Gorrón",
+      "DJ",
+      "Jefe de departamento",
+      "Mensajera",
+      "Contable",
+      "Secretario",
+      "CEO"
+    ]
+  },
+  {
+    "Nombre": "Teatro",
+    "Roles": [
+      "Carpintero",
+      "Aficionada al teatro",
+      "Acomodador",
+      "Apuntadora",
+      "Tramoyista",
+      "Actor",
+      "Directora"
+    ]
+  },
+  {
+    "Nombre": "Supermercado",
+    "Roles": [
+      "Frutera",
+      "Pescatero",
+      "Reponedora",
+      "Carnicero",
+      "Cliente",
+      "Guardia de seguridad",
+      "Cajero"
+    ]
+  },
+  {
+    "Nombre": "Circo",
+    "Roles": [
+      "Niña",
+      "Mago",
+      "Domadora",
+      "Malabarista",
+      "Lanzadora de cuchillos",
+      "Payaso",
+      "Acróbata"
+    ]
+  },
+  {
+    "Nombre": "Casino",
+    "Roles": [
+      "Jugadora",
+      "Gerente",
+      "Camarero",
+      "Guardia de seguridad",
+      "Jefe de seguridad",
+      "Tramposo",
+      "Crupier"
+    ]
+  },
+  {
+    "Nombre": "Playa",
+    "Roles": [
+      "Veraneante",
+      "Escultor de arena",
+      "Ladrona",
+      "Mirón",
+      "Vendedora ambulante",
+      "Parapentista",
+      "Socorrista"
+    ]
+  },
+  {
+    "Nombre": "Estación de servicio / Taller",
+    "Roles": [
+      "Gruista",
+      "Gasolinero",
+      "Recepcionista",
+      "Conductora",
+      "Lavador de coches",
+      "Mecánico",
+      "Gerente"
+    ]
+  },
+  {
+    "Nombre": "Avión",
+    "Roles": [
+      "Polizón",
+      "Ingeniero de vuelo",
+      "Pasajera en clase Business",
+      "Pasajero en clase turista",
+      "Azafata",
+      "Copiloto",
+      "Piloto"
+    ]
+  },
+  {
+    "Nombre": "Discoteca",
+    "Roles": [
+      "Turista",
+      "Modelo",
+      "Guardia de seguridad",
+      "DJ",
+      "Camarero",
+      "Ligón",
+      "Gogó"
+    ]
+  },
+  {
+    "Nombre": "Colegio",
+    "Roles": [
+      "Directora",
+      "Profesora de química",
+      "Profesor de gimnasia",
+      "Alumno de primaria",
+      "Bedel",
+      "Secretario",
+      "Jefe de estudios"
+    ]
+  },
+  {
+    "Nombre": "Base militar",
+    "Roles": [
+      "Oficial en reserva",
+      "Sargento",
+      "Desertor",
+      "Médico",
+      "Soldado",
+      "Centinela",
+      "Coronel"
+    ]
+  },
+  {
+    "Nombre": "Hotel",
+    "Roles": [
+      "Cocinero",
+      "Recepcionista",
+      "Camarero",
+      "Huésped",
+      "Guardia de seguridad",
+      "Botones",
+      "Directora"
+    ]
+  },
+  {
+    "Nombre": "Spa",
+    "Roles": [
+      "Cliente",
+      "Estilista",
+      "Dermatóloga",
+      "Maquillador",
+      "Manicurista",
+      "Masajista",
+      "Esteticista"
+    ]
+  },
+  {
+    "Nombre": "Carnaval",
+    "Roles": [
+      "Reina de carnaval",
+      "Chirigotero",
+      "Cosplayero",
+      "Sastre",
+      "Vendedora de perritos calientes",
+      "Fotógrafa",
+      "Turista"
     ]
   }
 ]
